@@ -5,21 +5,21 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ToString
-public class FPSagaCommand extends AbstractSagaCommand {
-    public FPSagaCommand(){
+public class FPSagaCommand1 extends AbstractSagaCommand1 {
+    public FPSagaCommand1(){
         super();
     }
-    public FPSagaCommand(boolean exFlag){
+    public FPSagaCommand1(boolean exFlag){
         super(exFlag);
     }
-    public FPSagaCommand(boolean exFlag,boolean unFlag){
+    public FPSagaCommand1(boolean exFlag,boolean unFlag){
         super(exFlag,unFlag);
     }
     public void exec() {
         log.debug(this+":exec()");
 
         if(isExecSuccess==false){
-            throw new SagaException(this.toString()+"exec(); Error!");
+            throw new SagaException1(this.toString()+"exec(); Error!");
         }
 
     }
@@ -27,7 +27,7 @@ public class FPSagaCommand extends AbstractSagaCommand {
     public void unExec(){
         log.debug(this+":unExec()");
         if(isUnExceSuccess==false){
-            throw new SagaException(this.toString()+"unExec(); Error!");
+            throw new SagaException1(this.toString()+"unExec(); Error!");
         }
 
     }

@@ -5,25 +5,25 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ToString
-public abstract class AbstractSagaCommand implements  SagaCommand {
+public abstract class AbstractSagaCommand1 implements SagaCommand1 {
 
     boolean isExecSuccess=true;
     boolean isUnExceSuccess=true;
 
-    public AbstractSagaCommand(){
+    public AbstractSagaCommand1(){
 
     }
 
-    public AbstractSagaCommand(boolean flag){
+    public AbstractSagaCommand1(boolean flag){
         this.isExecSuccess=flag;
     }
 
-    public AbstractSagaCommand(boolean exFlag,boolean unFlag){
+    public AbstractSagaCommand1(boolean exFlag, boolean unFlag){
         this.isExecSuccess=exFlag;
         this.isUnExceSuccess=unFlag;
     }
 
-    public abstract void exec() throws SagaException;
+    public abstract void exec() throws SagaException1;
 
     public void unExec(){
         log.debug(this+":unExec()");

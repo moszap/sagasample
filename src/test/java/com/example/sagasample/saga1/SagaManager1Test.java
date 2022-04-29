@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SagaManagerTest {
+public class SagaManager1Test {
 
-    SagaManager manager=null;
+    SagaManager1 manager=null;
 
     @BeforeEach
     public void setUp() {
@@ -15,11 +15,11 @@ public class SagaManagerTest {
     }
 
     public void initCmdManager(boolean irFlagE,boolean irFlagU,boolean fpFlagE,boolean fpFlagU,boolean opFlagE,boolean opFlagU){
-        IRSagaCommand irCmd=new IRSagaCommand(irFlagE,irFlagU);
-        FPSagaCommand fpCmd=new FPSagaCommand(fpFlagE,fpFlagU);
-        OPSagaCommand opCmd=new OPSagaCommand(opFlagE,opFlagU);
+        IRSagaCommand1 irCmd=new IRSagaCommand1(irFlagE,irFlagU);
+        FPSagaCommand1 fpCmd=new FPSagaCommand1(fpFlagE,fpFlagU);
+        OPSagaCommand1 opCmd=new OPSagaCommand1(opFlagE,opFlagU);
 
-        manager=new SagaManager();
+        manager=new SagaManager1();
         manager.addCommand(irCmd);
         manager.addCommand(fpCmd);
         manager.addCommand(opCmd);

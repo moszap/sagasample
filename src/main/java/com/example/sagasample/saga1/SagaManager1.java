@@ -9,23 +9,23 @@ import java.util.Stack;
 
 @Slf4j
 @Getter
-public class SagaManager {
+public class SagaManager1 {
     int successCmdNum=0;
     int failCmdNum=0;
     int failSuccessCmdNum=0;
 
-    ArrayList<SagaCommand> commandList=new ArrayList<SagaCommand>();
-    ArrayList<SagaCommand> successExecCommandList=new ArrayList<SagaCommand>();
-    ArrayList<SagaCommand> failSuccessCommandList=new ArrayList<SagaCommand>();
+    ArrayList<SagaCommand1> commandList=new ArrayList<SagaCommand1>();
+    ArrayList<SagaCommand1> successExecCommandList=new ArrayList<SagaCommand1>();
+    ArrayList<SagaCommand1> failSuccessCommandList=new ArrayList<SagaCommand1>();
 
-    Stack<SagaCommand> undoCommandStack=new Stack<SagaCommand>();
+    Stack<SagaCommand1> undoCommandStack=new Stack<SagaCommand1>();
 
-    public void addCommand(SagaCommand cmd) {
+    public void addCommand(SagaCommand1 cmd) {
         commandList.add(cmd);
     }
     public void execCommands(){
         for(int i=0;i<commandList.size();i++){
-            SagaCommand cmd=commandList.get(i);
+            SagaCommand1 cmd=commandList.get(i);
             try {
                 cmd.exec();
                 undoCommandStack.push(cmd);
@@ -44,7 +44,7 @@ public class SagaManager {
         failCmdNum=undoCommandStack.size();
         while(true){
             try {
-                SagaCommand cmd = undoCommandStack.pop();
+                SagaCommand1 cmd = undoCommandStack.pop();
                 cmd.unExec();
                 failSuccessCommandList.add(cmd);
             }
