@@ -1,13 +1,15 @@
 package com.example.sagasample.saga2;
 
 import lombok.Data;
+import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 
 @Data
 public class SimpleSageDefinition2 implements SagaDefinition2 {
-    ArrayList<SagaStep2> stepList=new ArrayList<SagaStep2>();
+    List<SagaStep2> stepList=new ArrayList<SagaStep2>();
     //HashMap<SagaEvent2,SagaEventHandler2> eventMap=new HashMap<SagaEvent2, SagaEventHandler2>();
 
     public void addSagaStep(SagaStep2 step){

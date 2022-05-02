@@ -12,18 +12,19 @@ public class SagaManager2 {
         this.definiton=definiton;
     }
 
-    public void publishEvent(SagaEventHandler2 handler,SagaEvent2 event){
-        //step.getDoHandler().onEvent(step.getDoEvent());
-        handler.onEvent(event);
+    SagaDefinition2 getSagaDefinition(Class T){
+        return (SagaDefinition2) cc.newInstance();
     }
 
-    public void exec(){
-        ArrayList<SagaStep2> stepList=definiton.getStepList();
+    public void startSaga(Class T){
+        List<SagaStep2> stepList=getSagaDefinition(T).getStepList();
+
         for(int i=0;i<stepList.size();i++){
 
             SagaStep2 step=stepList.get(i);
             try {
-                publishEvent(step.getDoHandler(),step.getDoEvent());
+                step.getEventHandler().onDoEvent();
+                //publishEvent(step.getDoHandler(),step.getDoEvent());
                 //undoCommandStack.push(cmd);
                 //successExecCommandList.add(cmd);
             }
@@ -36,4 +37,28 @@ public class SagaManager2 {
 
         }
     }
+//    public void publishEvent(SagaEventHandler2 handler,SagaEvent2 event){
+//        //step.getDoHandler().onEvent(step.getDoEvent());
+//        handler.onEvent(event);
+//    }
+//
+//    public void exec(){
+//        ArrayList<SagaStep2> stepList=definiton.getStepList();
+//        for(int i=0;i<stepList.size();i++){
+//
+//            SagaStep2 step=stepList.get(i);
+//            try {
+//                publishEvent(step.getDoHandler(),step.getDoEvent());
+//                //undoCommandStack.push(cmd);
+//                //successExecCommandList.add(cmd);
+//            }
+//            catch(Exception ex){
+//                log.info(ex.toString());
+//                //undoCommandStack.push(cmd);
+//                //unExecCommands();
+//                break;
+//            }
+//
+//        }
+//    }
 }

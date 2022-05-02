@@ -2,11 +2,10 @@ package com.example.sagasample.saga1;
 
 import com.example.sagasample.saga2.SagaManager2;
 import com.example.sagasample.saga2.SimpleSageDefinition2;
-import com.example.sagasample.saga2.event.FPSagaEvent2;
-import com.example.sagasample.saga2.event.IRSagaEvent2;
-import com.example.sagasample.saga2.event.OPSagaEvent2;
+import com.example.sagasample.saga2.irfpop.FPSagaEvent2;
+import com.example.sagasample.saga2.irfpop.IRSagaEvent2;
+import com.example.sagasample.saga2.irfpop.OPSagaEvent2;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
