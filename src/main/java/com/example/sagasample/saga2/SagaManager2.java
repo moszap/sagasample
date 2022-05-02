@@ -30,31 +30,9 @@ public class SagaManager2 {
         return instance;
     }
 
-    @SneakyThrows
-    SagaDefinition2 getSagaDefinition(Class cc){
-        return (SagaDefinition2) cc.getConstructor().newInstance();
+    public void startSaga(SagaInstance2 sagaInstance2){
+        sagaInstance2.execute();
     }
 
-    public void startSaga(Class T,SagaEvent2 event){
-        List<SagaStep2> stepList=getSagaDefinition(T).getStepList();
-
-        for(int i=0;i<stepList.size();i++){
-
-            SagaStep2 step=stepList.get(i);
-            try {
-                step.getEventHandler().onDoEvent(event);
-                //publishEvent(step.getDoHandler(),step.getDoEvent());
-                //undoCommandStack.push(cmd);
-                //successExecCommandList.add(cmd);
-            }
-            catch(Exception ex){
-                log.info(ex.toString());
-                //undoCommandStack.push(cmd);
-                //unExecCommands();
-                break;
-            }
-
-        }
-    }
 
 }

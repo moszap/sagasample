@@ -9,7 +9,7 @@ public class IREventHandler2 extends SimpleEventHandler {
     public SagaEvent2 onDoEvent(SagaEvent2 ee){
         IRFPOPEvent event=(IRFPOPEvent)ee;
         log.debug(this+":onEvent():"+event);
-        event.addSuccessCount();
+
         return event;
 //        if(isExecSuccess==false){
 //            throw new SagaException2(this.toString()+"onEvent(); Error!");

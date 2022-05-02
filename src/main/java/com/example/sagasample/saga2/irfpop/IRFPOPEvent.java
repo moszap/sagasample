@@ -11,13 +11,10 @@ import javax.annotation.processing.Generated;
 public class IRFPOPEvent implements SagaEvent2 {
 
     int orderid;
-    int successCount=0;
 
     public IRFPOPEvent(int orderid){
         this.orderid=orderid;
     }
-    public void addSuccessCount(){
-        successCount++;
-    }
+
 
 }
