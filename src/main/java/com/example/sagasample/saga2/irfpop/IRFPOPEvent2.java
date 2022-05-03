@@ -4,15 +4,13 @@ import com.example.sagasample.saga2.SagaEvent2;
 import lombok.Getter;
 import lombok.ToString;
 
-import javax.annotation.processing.Generated;
-
 @Getter
 @ToString
-public class IRFPOPEvent implements SagaEvent2 {
+public class IRFPOPEvent2 implements SagaEvent2 {
 
     int orderid;
 
-    public IRFPOPEvent(int orderid){
+    public IRFPOPEvent2(int orderid){
         this.orderid=orderid;
     }
 

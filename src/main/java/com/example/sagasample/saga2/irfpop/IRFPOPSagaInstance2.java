@@ -9,9 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 @Getter
 @Setter
 @Slf4j
-public class IRFPOPSagaInstance extends SimpleSagaInstance2 {
+public class IRFPOPSagaInstance2 extends SimpleSagaInstance2 {
 
-    public IRFPOPSagaInstance(IRFPOPEvent event){
+    public IRFPOPSagaInstance2(IRFPOPEvent2 event){
         super(event);
     }
 

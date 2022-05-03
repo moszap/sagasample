@@ -14,6 +14,7 @@ import java.util.Stack;
 @Setter
 public abstract class SimpleSagaInstance2 implements SagaInstance2{
 
+    String instanceId;
     int successStepNum=0;
     int failStepNum=0;
     int failSuccessStepNum=0;
@@ -28,6 +29,11 @@ public abstract class SimpleSagaInstance2 implements SagaInstance2{
 
     public SimpleSagaInstance2(SagaEvent2 event){
         this.event=event;
+        instanceId=SagaUtil2.generateUUID();
+    }
+
+    public String getInstanceId(){
+        return instanceId;
     }
 
     public void execute(){

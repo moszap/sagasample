@@ -12,8 +12,8 @@ import java.util.UUID;
 
 @Slf4j
 public class SagaManager2 {
-    private HashMap<String,SagaInstance2> instanceMap=new HashMap<String,SagaInstance2>();
-    Stack<SagaCommand1> undoCommandStack=new Stack<SagaCommand1>();
+    private HashMap<String,SagaInstance2> tokenInstanceMap=new HashMap<String,SagaInstance2>();
+
 
     private static SagaManager2 instance;
 
@@ -32,15 +32,12 @@ public class SagaManager2 {
         return instance;
     }
 
-    public String startSagaInstance(SagaInstance2 sagaInstance2){
-        sagaInstance2.execute();
-        String instanceToken=generateToken();
-        instanceMap.put(instanceToken,sagaInstance2);
-        return instanceToken;
+    public String startSagaInstance(SagaInstance2 sagaInstance){
+        String token=SagaUtil2.generateUUID();
+        sagaInstance.execute();
+        tokenInstanceMap.put(token,sagaInstance);
+        return token;
     }
 
-    public String generateToken(){
-        UUID uuid4 = UUID.randomUUID();
-        return uuid4.toString();
-    }
+
 }

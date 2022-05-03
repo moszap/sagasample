@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Stack;
 
 public interface SagaInstance2 {
+    public String getInstanceId();
     public SagaDefinition2 getSagaDefinition();
     public void execute();
 

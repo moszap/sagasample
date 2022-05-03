@@ -1,8 +1,7 @@
 package com.example.sagasample.saga2;
 
-import com.example.sagasample.saga2.irfpop.IRFPOPEvent;
-import com.example.sagasample.saga2.irfpop.IRFPOPSagaDefinition;
-import com.example.sagasample.saga2.irfpop.IRFPOPSagaInstance;
+import com.example.sagasample.saga2.irfpop.IRFPOPEvent2;
+import com.example.sagasample.saga2.irfpop.IRFPOPSagaInstance2;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,14 +16,14 @@ public class SagaManager2Test {
         manager = SagaManager2.getInstance();
     }
 
-    public IRFPOPSagaInstance initInstance(int orderid){
-        IRFPOPEvent event = new IRFPOPEvent(orderid);
-        IRFPOPSagaInstance sagaInstance=new IRFPOPSagaInstance(event);
+    public IRFPOPSagaInstance2 initInstance(int orderid){
+        IRFPOPEvent2 event = new IRFPOPEvent2(orderid);
+        IRFPOPSagaInstance2 sagaInstance=new IRFPOPSagaInstance2(event);
         return sagaInstance;
     }
     @Test
     public void testExecSuccess() {
-        IRFPOPSagaInstance sagaInstance=initInstance(0);
+        IRFPOPSagaInstance2 sagaInstance=initInstance(0);
         String token=manager.startSagaInstance(sagaInstance);
         assertEquals(3,sagaInstance.getSuccessStepNum());
         assertEquals(0,sagaInstance.getFailStepNum());
@@ -33,7 +32,7 @@ public class SagaManager2Test {
 
     @Test
     public void testExecFail_2() throws Exception {
-        IRFPOPSagaInstance sagaInstance=initInstance(2);
+        IRFPOPSagaInstance2 sagaInstance=initInstance(2);
         String token=manager.startSagaInstance(sagaInstance);
 
         assertEquals(1,sagaInstance.getSuccessStepNum());
@@ -44,7 +43,7 @@ public class SagaManager2Test {
 
     @Test
     public void testExecFail_3() throws Exception {
-        IRFPOPSagaInstance sagaInstance=initInstance(3);
+        IRFPOPSagaInstance2 sagaInstance=initInstance(3);
         String token=manager.startSagaInstance(sagaInstance);
 
         assertEquals(2,sagaInstance.getSuccessStepNum());
@@ -55,7 +54,7 @@ public class SagaManager2Test {
 
     @Test
     public void testExecFail_5() throws Exception {
-        IRFPOPSagaInstance sagaInstance=initInstance(5);
+        IRFPOPSagaInstance2 sagaInstance=initInstance(5);
         String token=manager.startSagaInstance(sagaInstance);
 
         assertEquals(1,sagaInstance.getSuccessStepNum());
@@ -66,7 +65,7 @@ public class SagaManager2Test {
 
     @Test
     public void testExecFail_6() throws Exception {
-        IRFPOPSagaInstance sagaInstance=initInstance(6);
+        IRFPOPSagaInstance2 sagaInstance=initInstance(6);
         String token=manager.startSagaInstance(sagaInstance);
 
         assertEquals(2,sagaInstance.getSuccessStepNum());
