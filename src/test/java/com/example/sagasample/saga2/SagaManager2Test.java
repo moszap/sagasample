@@ -13,7 +13,7 @@ public class SagaManager2Test {
 
     @BeforeEach
     public void setUp() {
-        manager = SagaManager2.getInstance();
+        manager = SimpleSagaManager2.getInstance();
     }
 
     public IRFPOPSagaInstance2 initInstance(int orderid){
