@@ -2,6 +2,7 @@ package com.example.sagasample.saga2.irfpop;
 
 import com.example.sagasample.saga2.SagaEvent2;
 import com.example.sagasample.saga2.SagaException2;
+import com.example.sagasample.saga2.SimpleEventHandler2;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

@@ -1,4 +1,4 @@
-package com.example.sagasample.saga2.irfpop;
+package com.example.sagasample.saga2;
 
 import com.example.sagasample.saga2.SagaEvent2;
 import com.example.sagasample.saga2.SagaEventHandler2;

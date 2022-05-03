@@ -12,12 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 public class IRFPOPSagaInstance2 extends SimpleSagaInstance2 {
 
     public IRFPOPSagaInstance2(IRFPOPEvent2 event){
-        super(event);
+        super(new IRFPOPSagaDefinition(),event);
     }
-
-    public SagaDefinition2 getSagaDefinition() {
-        return new IRFPOPSagaDefinition();
-    }
-
 
 }

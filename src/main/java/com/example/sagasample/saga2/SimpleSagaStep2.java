@@ -1,6 +1,5 @@
 package com.example.sagasample.saga2;
 
-import com.example.sagasample.saga2.irfpop.SimpleEventHandler2;
 import lombok.Data;
 
 @Data
