@@ -5,7 +5,7 @@ import com.example.sagasample.saga2.SimpleSagaStep2;
 
 public class FPSagaStep2 extends SimpleSagaStep2 {
     public SagaEventHandler2 getEventHandler(){
-        return new IREventHandler2();
+        return new FPEventHandler2();
     }
 
 }
