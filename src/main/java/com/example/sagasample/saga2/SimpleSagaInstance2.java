@@ -45,7 +45,7 @@ public abstract class SimpleSagaInstance2 implements SagaInstance2{
             }
             catch(Exception ex){
                 log.info(ex.toString());
-                undoStepStack.push(step);
+                //undoStepStack.push(step);
                 unExecSteps();
                 break;
             }

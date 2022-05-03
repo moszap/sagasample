@@ -36,8 +36,8 @@ public class SagaManager2Test {
         String token=manager.startSagaInstance(sagaInstance);
 
         assertEquals(1,sagaInstance.getSuccessStepNum());
-        assertEquals(2,sagaInstance.getFailStepNum());
-        assertEquals(2,sagaInstance.getFailSuccessStepNum());
+        assertEquals(1,sagaInstance.getFailStepNum());
+        assertEquals(1,sagaInstance.getFailSuccessStepNum());
     }
 
 
@@ -47,8 +47,8 @@ public class SagaManager2Test {
         String token=manager.startSagaInstance(sagaInstance);
 
         assertEquals(2,sagaInstance.getSuccessStepNum());
-        assertEquals(3,sagaInstance.getFailStepNum());
-        assertEquals(3,sagaInstance.getFailSuccessStepNum());
+        assertEquals(2,sagaInstance.getFailStepNum());
+        assertEquals(2,sagaInstance.getFailSuccessStepNum());
 
     }
 
@@ -58,8 +58,8 @@ public class SagaManager2Test {
         String token=manager.startSagaInstance(sagaInstance);
 
         assertEquals(1,sagaInstance.getSuccessStepNum());
-        assertEquals(2,sagaInstance.getFailStepNum());
-        assertEquals(0,sagaInstance.getFailSuccessStepNum());
+        assertEquals(1,sagaInstance.getFailStepNum());
+        assertEquals(1,sagaInstance.getFailSuccessStepNum());
 
     }
 
@@ -69,10 +69,20 @@ public class SagaManager2Test {
         String token=manager.startSagaInstance(sagaInstance);
 
         assertEquals(2,sagaInstance.getSuccessStepNum());
-        assertEquals(3,sagaInstance.getFailStepNum());
-        assertEquals(0,sagaInstance.getFailSuccessStepNum());
+        assertEquals(2,sagaInstance.getFailStepNum());
+        assertEquals(2,sagaInstance.getFailSuccessStepNum());
 
     }
 
+    @Test
+    public void testExecFail_7() throws Exception {
+        IRFPOPSagaInstance2 sagaInstance=initInstance(7);
+        String token=manager.startSagaInstance(sagaInstance);
+
+        assertEquals(3,sagaInstance.getSuccessStepNum());
+        assertEquals(0,sagaInstance.getFailStepNum());
+        assertEquals(0,sagaInstance.getFailSuccessStepNum());
+
+    }
 
 }

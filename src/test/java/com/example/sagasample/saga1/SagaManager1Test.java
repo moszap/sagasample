@@ -38,7 +38,7 @@ public class SagaManager1Test {
         initCmdManager(false,true,true,true,true,true);
         manager.execCommands();
         assertEquals(0,manager.getSuccessCmdNum());
-        assertEquals(1,manager.getFailCmdNum());
+        assertEquals(0,manager.getFailCmdNum());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class SagaManager1Test {
         initCmdManager(true,true,false,true,true,true);
         manager.execCommands();
         assertEquals(1,manager.getSuccessCmdNum());
-        assertEquals(2,manager.getFailCmdNum());
+        assertEquals(1,manager.getFailCmdNum());
     }
 
     @Test
@@ -54,16 +54,16 @@ public class SagaManager1Test {
         initCmdManager(true,true,true,true,false,true);
         manager.execCommands();
         assertEquals(2,manager.getSuccessCmdNum());
-        assertEquals(3,manager.getFailCmdNum());
-        assertEquals(3,manager.getFailSuccessCmdNum());
+        assertEquals(2,manager.getFailCmdNum());
+        assertEquals(2,manager.getFailSuccessCmdNum());
     }
 
     @Test
     public void testExecFail_3F_F() throws Exception {
-        initCmdManager(true,true,true,true,false,false);
+        initCmdManager(true,true,true,false,false,true);
         manager.execCommands();
         assertEquals(2,manager.getSuccessCmdNum());
-        assertEquals(3,manager.getFailCmdNum());
+        assertEquals(2,manager.getFailCmdNum());
         assertEquals(0,manager.getFailSuccessCmdNum());
     }
 }

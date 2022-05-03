@@ -33,7 +33,7 @@ public class SagaManager1 {
             }
             catch(Exception ex){
                 log.info(ex.toString());
-                undoCommandStack.push(cmd);
+                //undoCommandStack.push(cmd);
                 unExecCommands();
                 break;
             }
