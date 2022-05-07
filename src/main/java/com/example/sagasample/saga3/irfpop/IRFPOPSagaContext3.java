@@ -9,9 +9,11 @@ import lombok.Setter;
 @Setter
 public class IRFPOPSagaContext3 extends SimpleSagaContext3 {
     long orderid;
-    public IRFPOPSagaContext3(long orderid){
+    RemoteServiceState remoteServiceState;
+    public IRFPOPSagaContext3(long orderid,RemoteServiceState remoteServiceState){
         super();
         this.orderid=orderid;
+        this.remoteServiceState=remoteServiceState;
         setCurrentState(new IRFPOPInitState3(this));
 
 

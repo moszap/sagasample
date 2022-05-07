@@ -19,8 +19,10 @@ public class SagaManager3Test {
 
     @Test
     public void testExecSuccess() {
-        //RemoteServiceState.getInstance().getRemoteServiceState("");
-        SagaContext3 context=new IRFPOPSagaContext3(System.currentTimeMillis());
+        boolean[] stateArray=new boolean[]{false,true,true};
+        RemoteServiceState remoteServiceState=new RemoteServiceState(stateArray);
+        remoteServiceState.getRemoteServiceState("DoIRState3");
+        SagaContext3 context=new IRFPOPSagaContext3(System.currentTimeMillis(),remoteServiceState);
         context.execute();
     }
 

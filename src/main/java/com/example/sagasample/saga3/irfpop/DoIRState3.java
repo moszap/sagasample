@@ -9,16 +9,24 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Getter
 public class DoIRState3 extends SimpleSagaState3 {
+
     public DoIRState3(IRFPOPSagaContext3 context){
         super(context);
+
+
     }
 
     public void doAction(){
         log.debug(stateName+":doAction():"+((IRFPOPSagaContext3)context).getOrderid());
 
+        if(((IRFPOPSagaContext3) context).getRemoteServiceState().getRemoteServiceState(stateName)==true){
+            setNextState(new DoFPState3((IRFPOPSagaContext3)context));
+        }
+        else {
+
+        }
+
     }
-    public SagaState3 getNextState(){
-        return new DoFPState3((IRFPOPSagaContext3)context);
-    }
+
 
 }
