@@ -11,6 +11,12 @@ public class RemoteServiceState {
         remoteServiceStateMapA.put("DoIRState3",stateArr[0]);
         remoteServiceStateMapA.put("DoFPState3",stateArr[1]);
         remoteServiceStateMapA.put("DoOPState3",stateArr[2]);
+        remoteServiceStateMapA.put("DoIRCompensationState3",stateArr[3]);
+        remoteServiceStateMapA.put("DoFPCompensationState3",stateArr[4]);
+        remoteServiceStateMapA.put("DoOPCompensationState3",stateArr[5]);
+
+
+
     }
 
 
