@@ -23,7 +23,7 @@ public class DoIRState3 extends SimpleSagaState3 {
             setNextState(new DoFPState3((IRFPOPSagaContext3)context));
         }
         else {
-
+            setNextState(new DoIRCompensationState3((IRFPOPSagaContext3)context));
         }
 
     }

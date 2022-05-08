@@ -15,7 +15,7 @@ public class DoFPCompensationState3 extends SimpleSagaState3 {
             setNextState(new DoIRCompensationState3((IRFPOPSagaContext3)context));
         }
         else {
-
+            setNextState(new IRFPOPExceptionEndState3(context));
         }
 
     }

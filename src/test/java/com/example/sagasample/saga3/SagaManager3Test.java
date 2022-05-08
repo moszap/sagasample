@@ -43,4 +43,22 @@ public class SagaManager3Test {
         context.execute();
     }
 
+    @Test
+    public void testExecFail_4() throws Exception {
+        boolean[] stateArr=new boolean[]{true,true,false,false,true,true};
+        RemoteServiceState remoteServiceState=new RemoteServiceState(stateArr);
+        SagaContext3 context=new IRFPOPSagaContext3(System.currentTimeMillis(),remoteServiceState);
+        context.execute();
+    }
+
+
+    @Test
+    public void testExecFail_5() throws Exception {
+        boolean[] stateArr=new boolean[]{true,true,false,true,false,true};
+        RemoteServiceState remoteServiceState=new RemoteServiceState(stateArr);
+        SagaContext3 context=new IRFPOPSagaContext3(System.currentTimeMillis(),remoteServiceState);
+        context.execute();
+    }
+
+
 }
