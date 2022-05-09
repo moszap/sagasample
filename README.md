@@ -9,3 +9,5 @@ SequenceDiagram:
 ![image](./src/main/resources/static/SequenceDiagram.jpg)
 
 saga3:state_pattern + EventBus
+Class Diagram:
+![image](./src/main/resources/static/V3_EventBus.jpg)
