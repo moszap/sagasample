@@ -2,13 +2,15 @@ package com.example.sagasample.saga3.irfpop;
 
 import com.example.sagasample.saga3.eventbus.SagaEvent3;
 
+
+
 public interface DoCount {
-    public int getDoSuccessCount();
+    public int getDoSuccessCount(String contextid);
 
-    public int getDoCompensationSuccessCount() ;
+    public int getDoCompensationSuccessCount(String contextid) ;
 
-    public void resetAllCount();
+    public void resetAllCount(String contextid);
 
-    public void addEventCount(SagaEvent3 event);
+    public void addEventCount(String contextid,SagaEvent3 event);
 
 }

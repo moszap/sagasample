@@ -29,7 +29,7 @@ public class SimpleEventBus3 implements EventBus3 {
 
 
         Function<SagaEvent3,SagaEvent3> f=eventMap.get(event.getClass());
-        SimpleDoCount.getInstance().addEventCount(event);
+        SimpleDoCount.getInstance().addEventCount(event.getContext().getContextID(), event);
         return f.apply(event);
 
     }

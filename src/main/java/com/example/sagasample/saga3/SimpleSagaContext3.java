@@ -3,10 +3,13 @@ package com.example.sagasample.saga3;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 public class SimpleSagaContext3 implements SagaContext3 {
 
+    protected String contextid= UUID.randomUUID().toString();
     //String contextName;
 
     protected SagaState3 currentState;
@@ -25,5 +28,10 @@ public class SimpleSagaContext3 implements SagaContext3 {
             currentState=currentState.getNextState();
         }
     }
+
+    public String getContextID(){
+        return contextid;
+    }
+
 
 }

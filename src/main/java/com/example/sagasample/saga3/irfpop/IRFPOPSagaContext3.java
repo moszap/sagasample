@@ -9,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class IRFPOPSagaContext3 extends SimpleSagaContext3 {
+
     long orderid;
 
     RemoteServiceState remoteServiceState;
@@ -20,15 +21,15 @@ public class IRFPOPSagaContext3 extends SimpleSagaContext3 {
     }
 
     public void resetCount(){
-        SimpleDoCount.getInstance().resetAllCount();
+        SimpleDoCount.getInstance().resetAllCount(contextid);
     }
 
 
     public int getDoSuccessCount(){
-        return  SimpleDoCount.getInstance().getDoSuccessCount();
+        return  SimpleDoCount.getInstance().getDoSuccessCount(contextid);
     }
 
     public int getDoCompensationSuccessCount(){
-        return  SimpleDoCount.getInstance().getDoCompensationSuccessCount();
+        return  SimpleDoCount.getInstance().getDoCompensationSuccessCount(contextid);
     }
 }
