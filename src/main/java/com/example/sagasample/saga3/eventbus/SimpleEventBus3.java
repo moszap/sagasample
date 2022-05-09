@@ -2,11 +2,16 @@ package com.example.sagasample.saga3.eventbus;
 
 import com.example.sagasample.saga3.eventbus.event.*;
 import com.example.sagasample.saga3.irfpop.DoCount;
+import lombok.Getter;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.function.Function;
 
+@Getter
 public class SimpleEventBus3 implements EventBus3 {
+
+    private HashSet<Class> eventClassSet=new HashSet<>();
 
     private SimpleEventBus3(){
 
@@ -23,6 +28,7 @@ public class SimpleEventBus3 implements EventBus3 {
 
     public void register(Class<? extends SagaEvent3> c,Function function){
         eventMap.put(c,function);
+        eventClassSet.add(c);
     }
 
     public SagaEvent3 onEvent(SagaEvent3 event){

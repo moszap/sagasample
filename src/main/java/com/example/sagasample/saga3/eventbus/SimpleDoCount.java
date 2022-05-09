@@ -4,6 +4,7 @@ import com.example.sagasample.saga3.eventbus.event.*;
 import com.example.sagasample.saga3.irfpop.DoCount;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 
 public class SimpleDoCount implements DoCount {
@@ -46,13 +47,10 @@ public class SimpleDoCount implements DoCount {
     }
 
     public void resetAllCount(String contextid){
-        resetCount(contextid,DoIRSuccessEvent3.class);
-        resetCount(contextid,DoFPSuccessEvent3.class);
-        resetCount(contextid,DoOPSuccessEvent3.class);
-        resetCount(contextid,DoIRCompensationSuccessEvent3.class);
-        resetCount(contextid,DoFPCompensationSuccessEvent3.class);
-        resetCount(contextid,DoOPCompensationSuccessEvent3.class);
 
+        for (Class c : SimpleEventBus3.getInstance().getEventClassSet()) {
+            resetCount(contextid,c);
+        }
     }
 
     public String getCountKey(String contextid,Class eventClass){
