@@ -1,14 +1,10 @@
 package com.example.sagasample.saga3.irfpop;
 
-public class DoCount {
-    int doSuccessCount=0;
-    int doCompensationSuccessCount=0;
+public interface DoCount {
+    public int getDoSuccessCount();
 
-    public void addDoSuccessCount(){
-        doSuccessCount++;
-    }
+    public int getDoCompensationSuccessCount() ;
 
-    public void addDoCompensationSuccessCount(){
-        doCompensationSuccessCount++;
-    }
+    public void resetAllCount();
+
 }

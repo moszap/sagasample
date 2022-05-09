@@ -15,7 +15,6 @@ public class DoIRCompensationState3 extends SimpleSagaState3 {
 
         if(((IRFPOPSagaContext3) context).getRemoteServiceState().getRemoteServiceState(stateName)==true){
             setNextState(new IRFPOPFailEndState3(context));
-            ((IRFPOPSagaContext3) context).addDoCompensationSuccessCount();
             DoIRCompensationSuccessEvent3 irCompensationSuccessEvent=new DoIRCompensationSuccessEvent3(context);
             fireEvent(irCompensationSuccessEvent);
         }

@@ -1,7 +1,7 @@
 package com.example.sagasample.saga3.irfpop;
 
-import com.example.sagasample.saga3.SagaState3;
 import com.example.sagasample.saga3.SimpleSagaContext3;
+import com.example.sagasample.saga3.eventbus.EventBusFactory;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +9,6 @@ import lombok.Setter;
 @Setter
 public class IRFPOPSagaContext3 extends SimpleSagaContext3 {
     long orderid;
-
-    DoCount doCount=new DoCount();
 
     RemoteServiceState remoteServiceState;
     public IRFPOPSagaContext3(long orderid,RemoteServiceState remoteServiceState){
@@ -20,20 +18,16 @@ public class IRFPOPSagaContext3 extends SimpleSagaContext3 {
         setCurrentState(new IRFPOPInitState3(this));
     }
 
-    public void addDoSuccessCount(){
-        doCount.addDoSuccessCount();
+    public void resetCount(){
+        ((DoCount) EventBusFactory.getInstance().getEventBus()).resetAllCount();
     }
 
-    public void addDoCompensationSuccessCount(){
-        doCount.addDoCompensationSuccessCount();
-    }
 
     public int getDoSuccessCount(){
-        return doCount.doSuccessCount;
+        return ((DoCount) EventBusFactory.getInstance().getEventBus()).getDoSuccessCount();
     }
 
     public int getDoCompensationSuccessCount(){
-        return doCount.doCompensationSuccessCount;
+        return ((DoCount) EventBusFactory.getInstance().getEventBus()).getDoCompensationSuccessCount();
     }
-
 }

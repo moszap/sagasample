@@ -25,7 +25,6 @@ public class DoIRState3 extends SimpleSagaState3 {
 
         if(((IRFPOPSagaContext3) context).getRemoteServiceState().getRemoteServiceState(stateName)==true){
             setNextState(new DoFPState3((IRFPOPSagaContext3)context));
-            ((IRFPOPSagaContext3) context).addDoSuccessCount();
             DoIRSuccessEvent3 irSuccessEvent=new DoIRSuccessEvent3(context);
             fireEvent(irSuccessEvent);
 
