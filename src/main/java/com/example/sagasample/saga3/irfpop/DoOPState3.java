@@ -15,6 +15,7 @@ public class DoOPState3 extends SimpleSagaState3 {
 
         if(((IRFPOPSagaContext3) context).getRemoteServiceState().getRemoteServiceState(stateName)==true){
             setNextState(new IRFPOPSuccessEndState3(context));
+            ((IRFPOPSagaContext3) context).addDoSuccessCount();
         }
         else {
             setNextState(new DoOPCompensationState3((IRFPOPSagaContext3)context));

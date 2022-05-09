@@ -11,8 +11,10 @@ public class DoFPCompensationState3 extends SimpleSagaState3 {
     public void doAction(){
         log.debug(stateName+":doAction():"+((IRFPOPSagaContext3)context).getOrderid());
 
+
         if(((IRFPOPSagaContext3) context).getRemoteServiceState().getRemoteServiceState(stateName)==true){
             setNextState(new DoIRCompensationState3((IRFPOPSagaContext3)context));
+            ((IRFPOPSagaContext3) context).addDoCompensationSuccessCount();
         }
         else {
             setNextState(new IRFPOPExceptionEndState3(context));
