@@ -2,6 +2,7 @@ package com.example.sagasample.saga3.irfpop;
 
 import com.example.sagasample.saga3.SimpleSagaContext3;
 import com.example.sagasample.saga3.eventbus.EventBusFactory;
+import com.example.sagasample.saga3.eventbus.SimpleDoCount;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,15 +20,15 @@ public class IRFPOPSagaContext3 extends SimpleSagaContext3 {
     }
 
     public void resetCount(){
-        ((DoCount) EventBusFactory.getInstance().getEventBus()).resetAllCount();
+        SimpleDoCount.getInstance().resetAllCount();
     }
 
 
     public int getDoSuccessCount(){
-        return ((DoCount) EventBusFactory.getInstance().getEventBus()).getDoSuccessCount();
+        return  SimpleDoCount.getInstance().getDoSuccessCount();
     }
 
     public int getDoCompensationSuccessCount(){
-        return ((DoCount) EventBusFactory.getInstance().getEventBus()).getDoCompensationSuccessCount();
+        return  SimpleDoCount.getInstance().getDoCompensationSuccessCount();
     }
 }
