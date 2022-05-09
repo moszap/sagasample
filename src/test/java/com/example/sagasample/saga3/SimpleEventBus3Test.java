@@ -7,11 +7,9 @@ import com.example.sagasample.saga3.irfpop.RemoteServiceState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.function.Function;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EventBus3Test {
+public class SimpleEventBus3Test {
 
     IRFPOPSagaContext3 context;
 
@@ -30,9 +28,24 @@ public class EventBus3Test {
         DoFPSuccessEvent3 fpSuccessEvent=new DoFPSuccessEvent3(context);
         DoOPSuccessEvent3 opSuccessEvent=new DoOPSuccessEvent3(context);
 
-        EventBus3.getInstance().onEvent(irSuccessEvent);
-        EventBus3.getInstance().onEvent(fpSuccessEvent);
-        EventBus3.getInstance().onEvent(opSuccessEvent);
+        EventBusFactory.getInstance().getEventBus().onEvent(irSuccessEvent);
+        EventBusFactory.getInstance().getEventBus().onEvent(fpSuccessEvent);
+        EventBusFactory.getInstance().getEventBus().onEvent(opSuccessEvent);
+
+        //assertEquals(3,context.getDoSuccessCount());
+        //assertEquals(0,context.getDoCompensationSuccessCount());
+    }
+
+    @Test
+    public void testOnEventIRFPOP_CompensationSuccess() {
+
+        DoIRCompensationSuccessEvent3 irCompensationSuccessEvent=new DoIRCompensationSuccessEvent3(context);
+        DoFPCompensationSuccessEvent3 fpCompensationSuccessEvent=new DoFPCompensationSuccessEvent3(context);
+        DoOPCompensationSuccessEvent3 opCompensationSuccessEvent=new DoOPCompensationSuccessEvent3(context);
+
+        EventBusFactory.getInstance().getEventBus().onEvent(irCompensationSuccessEvent);
+        EventBusFactory.getInstance().getEventBus().onEvent(fpCompensationSuccessEvent);
+        EventBusFactory.getInstance().getEventBus().onEvent(opCompensationSuccessEvent);
 
         //assertEquals(3,context.getDoSuccessCount());
         //assertEquals(0,context.getDoCompensationSuccessCount());
@@ -45,9 +58,9 @@ public class EventBus3Test {
         DoFPFailEvent3 fpFailEvent=new DoFPFailEvent3(context);
         DoOPFailEvent3 opFailEvent=new DoOPFailEvent3(context);
 
-        EventBus3.getInstance().onEvent(irFailEvent);
-        EventBus3.getInstance().onEvent(fpFailEvent);
-        EventBus3.getInstance().onEvent(opFailEvent);
+        EventBusFactory.getInstance().getEventBus().onEvent(irFailEvent);
+        EventBusFactory.getInstance().getEventBus().onEvent(fpFailEvent);
+        EventBusFactory.getInstance().getEventBus().onEvent(opFailEvent);
 
         //assertEquals(3,context.getDoSuccessCount());
         //assertEquals(0,context.getDoCompensationSuccessCount());
