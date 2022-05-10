@@ -5,17 +5,17 @@ saga1:Command Mode
 
 //=========================================
 
-sgag2: eventModel_orchestration_diagram
+sgag2:EventModel + Orchestration + Diagram
 
 Class Diagram:
 ![image](./src/main/resources/static/ClassDiagram.jpg)
 
-SequenceDiagram:
+Sequence Diagram:
 ![image](./src/main/resources/static/SequenceDiagram.jpg)
 
 //=========================================
 
-saga3:state_pattern + EventBus
+saga3:State pattern + EventBus
 
 Class Diagram:
 ![image](./src/main/resources/static/V3_EventBus.jpg)
