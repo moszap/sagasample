@@ -28,9 +28,9 @@ public class SimpleEventBus3Test {
         DoFPSuccessEvent3 fpSuccessEvent=new DoFPSuccessEvent3(context);
         DoOPSuccessEvent3 opSuccessEvent=new DoOPSuccessEvent3(context);
 
-        EventBusFactory.getInstance().getEventBus().onEvent(irSuccessEvent);
-        EventBusFactory.getInstance().getEventBus().onEvent(fpSuccessEvent);
-        EventBusFactory.getInstance().getEventBus().onEvent(opSuccessEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(irSuccessEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(fpSuccessEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(opSuccessEvent);
 
         //assertEquals(3,context.getDoSuccessCount());
         //assertEquals(0,context.getDoCompensationSuccessCount());
@@ -43,9 +43,9 @@ public class SimpleEventBus3Test {
         DoFPCompensationSuccessEvent3 fpCompensationSuccessEvent=new DoFPCompensationSuccessEvent3(context);
         DoOPCompensationSuccessEvent3 opCompensationSuccessEvent=new DoOPCompensationSuccessEvent3(context);
 
-        EventBusFactory.getInstance().getEventBus().onEvent(irCompensationSuccessEvent);
-        EventBusFactory.getInstance().getEventBus().onEvent(fpCompensationSuccessEvent);
-        EventBusFactory.getInstance().getEventBus().onEvent(opCompensationSuccessEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(irCompensationSuccessEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(fpCompensationSuccessEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(opCompensationSuccessEvent);
 
         //assertEquals(3,context.getDoSuccessCount());
         //assertEquals(0,context.getDoCompensationSuccessCount());
@@ -58,9 +58,9 @@ public class SimpleEventBus3Test {
         DoFPFailEvent3 fpFailEvent=new DoFPFailEvent3(context);
         DoOPFailEvent3 opFailEvent=new DoOPFailEvent3(context);
 
-        EventBusFactory.getInstance().getEventBus().onEvent(irFailEvent);
-        EventBusFactory.getInstance().getEventBus().onEvent(fpFailEvent);
-        EventBusFactory.getInstance().getEventBus().onEvent(opFailEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(irFailEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(fpFailEvent);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(opFailEvent);
 
         //assertEquals(3,context.getDoSuccessCount());
         //assertEquals(0,context.getDoCompensationSuccessCount());

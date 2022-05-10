@@ -1,6 +1,7 @@
 package com.example.sagasample.saga3;
 
 import com.example.sagasample.saga3.eventbus.EventBusFactory;
+import com.example.sagasample.saga3.eventbus.EventBusType;
 import com.example.sagasample.saga3.eventbus.SagaEvent3;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,6 +37,6 @@ public class SimpleSagaState3 implements SagaState3 {
 
 
     public void fireEvent(SagaEvent3 event){
-        EventBusFactory.getInstance().getEventBus().onEvent(event);
+        EventBusFactory.getEventBus(EventBusType.IRFPOP).onEvent(event);
     }
 }
