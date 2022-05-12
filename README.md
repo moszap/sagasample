@@ -13,6 +13,7 @@ Class Diagram:
 Sequence Diagram:
 ![image](./src/main/resources/static/SequenceDiagram.jpg)
 
+
 //=========================================
 
 saga3:State pattern + EventBus
