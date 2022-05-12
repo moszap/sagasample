@@ -4,10 +4,12 @@ import com.example.sagasample.saga3.eventbus.*;
 import com.example.sagasample.saga3.eventbus.event.*;
 import com.example.sagasample.saga3.irfpop.IRFPOPSagaContext3;
 import com.example.sagasample.saga3.irfpop.RemoteServiceState;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class SimpleEventBus3Test {
 
@@ -18,6 +20,16 @@ public class SimpleEventBus3Test {
         boolean[] stateArr=new boolean[]{true,true,true,true,true,true};
         RemoteServiceState remoteServiceState=new RemoteServiceState(stateArr);
         context=new IRFPOPSagaContext3(System.currentTimeMillis(),remoteServiceState);
+    }
+
+    @Test
+    public void testOnEventBusFactoryNull() {
+        assertNotNull(EventBusFactory.getEventBus(EventBusType.IRFPOP));
+        Assertions.assertThrows(SagaException3.class, () -> {
+            EventBusFactory.getEventBus(null);
+        });
+
+
     }
 
     @Test

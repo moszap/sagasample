@@ -15,6 +15,9 @@ public class EventBusFactory {
 
 
     public static EventBus3 getEventBus(EventBusType eventBusType){
+        if(eventBusType==null){
+            throw new SagaException3("eventBusType is null");
+        }
         synchronized (eventBusMap) {
             if (eventBusMap.get(eventBusType) != null) {
                 return eventBusMap.get(eventBusType);
@@ -43,8 +46,11 @@ public class EventBusFactory {
                 SimpleEventBus3.getInstance().register(DoOPFailEvent3.class, opHandlerFunction);
                 return SimpleEventBus3.getInstance();
             }
+            else {
+                throw new SagaException3("not implements");
+            }
         }
-        throw new SagaException3("not implements");
+
     }
 
 }
