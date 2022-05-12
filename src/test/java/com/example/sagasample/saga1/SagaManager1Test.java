@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class SagaManager1Test {
 
@@ -31,6 +32,7 @@ public class SagaManager1Test {
         manager.execCommands();
         assertEquals(3,manager.getSuccessCmdNum());
         assertEquals(0,manager.getFailCmdNum());
+        assertNotEquals("", manager.getCount().toString());
     }
 
     @Test
