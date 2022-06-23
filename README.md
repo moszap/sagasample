@@ -3,6 +3,8 @@
 
 saga1:Command Mode
 
+Class Diagram:
+![image](./src/main/resources/static/CommandModel1.jpg)
 //=========================================
 
 sgag2:EventModel + Orchestration + Diagram
